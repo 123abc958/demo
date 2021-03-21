@@ -26,7 +26,7 @@ SECRET_KEY = '%r+df9u884!@ydt4i1c&wnt59%ut(-y3v^f5-^2as)2p%io9pe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tranquil-sea-61752.herokuapp.com']
+ALLOWED_HOSTS = ['tranquil-sea-61752.herokuapp.com','127.0.0.1']
 
 
 # Application definition
