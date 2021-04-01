@@ -1,0 +1,14 @@
+ <!-- post -->
+<!-- start -->
+<div class="posts" id="posts">
+    <h1>Posts</h1>
+    <div class="posts__content">  
+  {% for post in post%}
+      <div class="posts__contents">
+        <h5>{{ post.title }}</h5>
+        <a href="">{{ post.text}}</a> 
+      </div>
+  {% endfor %}
+    </div>
+  </div>
+  <!-- end -->
