@@ -5,7 +5,8 @@ from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-  profile = Profile.objects.get(id=1)
+#   profile = Profile.objects.get(id=1)
+  profile = Profile.objects.all().order_by('-id')
   return render(request, 'demo_app/index.html', {'profile': profile})
  
 def about(request):
