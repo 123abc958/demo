@@ -39,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'demo_app',
+    'django_cleanup',
+    'bootstrap4',
+    'widget_tweaks',
+    'user_app',
+    
 ]
 
 MIDDLEWARE = [
@@ -65,6 +70,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+            'builtins':[ 
+                 'bootstrap4.templatetags.bootstrap4',
             ],
         },
     },
@@ -122,3 +130,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static') 
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+LOGIN_URL = 'user_app:login'
+LOGIN_REDIRECT_URL = 'demo_app:index'
+LOGOUT_REDIRECT_URL = 'demo_app:index'

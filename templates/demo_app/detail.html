@@ -1,0 +1,14 @@
+{% extends 'base.html' %} <!-- 追加 -->
+{% block content %} <!-- 追加 -->
+<h1>detail page</h1>
+<hr>
+{% if post.image %}
+ <img src="{{ post.image.url }}">
+{% endif %}
+<h4>タイトル：{{ post.title }}</h4>
+<p>内容：{{ post.text }}</p>
+<!-- 追加 ここから -->
+<button><a href="{% url 'demo_app:edit' post_id=post.id %}">編集</a></button>
+<button><a href="{% url 'demo_app:delete' post_id=post.id %}">削除</a></button>
+<!-- 追加 ここまで -->
+{% endblock %} <!-- 追加 -->

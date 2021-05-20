@@ -1,47 +1,54 @@
-<h1>this is index.vcccvv</h1>
-<h1>this is index.vcccvv</h1>
-<h1>this is index.vcccvv</h1>
+  {% extends 'base.html' %} <!-- 追加 -->
+  {% block content %} <!-- 追加 -->  
+<div class="container">
 
-about
-<a href="/about">about</a> 
+  
 
-<div class="about" id="about">
-    <h1>About</h1>
-    <!-- {% for profile in profile%} -->
-    <table class="table table-borderless">
-      <tbody>
-        <tr class="text-center">        
-          <td>Name</td>
-          <td>{{ profile.name }}</td>       
-        </tr>
-        <tr class="text-center">
-          <td>Education</td>
-          <td>{{ profile.education }}</td>
-        </tr>
-        <tr class="text-center">
-          <td>GitHub</td>
-          <td>{{ profile.github }}</td>
-        </tr>
-        <tr class="text-center">
-          <td>Facebook</td>
-          <td>{{ profile.facebook }}</td>
-        </tr>
-        <tr class="text-center">
-          <td>Blog</td>
-          <td>{{ profile.blog }}</td>
-        </tr>
-        <tr class="text-center">
-          <td>Mail</td>
-          <td>{{ profile.mail }}</td>
-        </tr>
-        <tr class="text-center">
-          <td>Mobil</td>
-          <td>{{ profile.mobile }}</td>
-        </tr>
-      </tbody>
-    </table>  
-    <!-- {% endfor %} -->
-</div>
+
+
 
   <a href="/post">post</a> 
- 
+</div>
+  
+
+
+<!-- ここから -->
+
+
+
+<hr>
+
+
+<div class="d-flex text-white"></div>
+{% for post in post%}
+
+  <div class="p-2 flex-fill "><a href="{% url 'demo_app:detail' post_id=post.id %}">
+    {% if post.image %}
+    <img src="{{ post.image.url }}">
+    {% endif %}
+    <h5>{{post.title|truncatechars:13 | linebreaksbr}}</h5>
+    <p>{{post.text}}</p>
+    <p>{{post.created_at}}</p></div>
+{% endfor %}  
+</div>
+
+
+
+
+
+<!-- ここまで -->
+  <!-- 検索フォーム -->
+<div class="d-flex justify-content-center">
+  <form class="form-inline my-2" method="GET" action="{% url 'demo_app:index' %}">
+   <input type="text" class="form-control" name="q" value="{{request.GET.q}}">
+   <button type="submit" value="search" class="btn btn-primary">検索</button>
+  </form>
+  </div>
+  <!-- 検索フォーム -->
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
+  {% endblock %} <!-- 追加 -->
+
